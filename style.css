@@ -1,0 +1,11 @@
+#titulo{
+    text-align: center;
+}
+
+#campoDeTexto{
+    width: 500px;
+    padding: 15px;
+    margin: 30px;
+    resize: none; /*resize remove o icone que deixa 
+    o usuario mudar o tamanho dacaixa de texto*/
+}
