@@ -30,26 +30,32 @@ function acharNan(palavraAtual) {
 }
 
 function contar() {
+    palavras = []
+    vezes = []
+    palavrasFinal = []
+    vezesFinal = []
     var texto = document.getElementById("campoDeTexto").value + " "
+    texto = texto.toLowerCase()
+    texto = texto.replace(/(\r\n|\n|\r)/gm, "") //remove quebras de linha
     var palavraAtual = ""
     var i = 0
     do {
-        if (texto[i] != " " && texto[i] != "," && texto[i] != "." && texto[i] != "?" && texto[i] != "!" && texto[i] != "") {
-            palavraAtual = palavraAtual + texto[i]
-        }
-        else if (palavraAtual!="" && acharPalavraIgual(palavraAtual)) {
+        if (texto[i] != " " && texto[i] != "," && texto[i] != "." && texto[i] != "?" && texto[i] != "!" && texto[i] != "" && texto[i] != "-" && texto[i] != "–") {
+        palavraAtual = palavraAtual + texto[i]
+    }
+        else if (palavraAtual != "" && acharPalavraIgual(palavraAtual)) {
+        palavraAtual = ""
+    }
+    else {
+        if (acharNan(palavraAtual)) {
             palavraAtual = ""
         }
-        else {
-            if (acharNan(palavraAtual)) {
-                palavraAtual = ""
-            }
-        }
-        i++
-    } while (i <= texto.length)
+    }
+    i++
+} while (i <= texto.length)
 
     ordenar()
-    imprimir()
+imprimir()
 }
 
 function acharPlavraQueMaisAparece() {
@@ -62,26 +68,53 @@ function acharPlavraQueMaisAparece() {
         }
     }
     vezes[posicaoMaior] = 0
-    palavrasFinal.push(palavras[posicaoMaior])
-    vezesFinal.push(maior)
+    if (palavras[posicaoMaior].length > 0) {
+        palavrasFinal.push(palavras[posicaoMaior])
+        vezesFinal.push(maior)
+        return true
+    }
+    else {
+        return false
+    }
 }
 
 function ordenar() {
     let y = 0
     do {
-        acharPlavraQueMaisAparece()
-        y++
-    } while (y < 10)
+        if (acharPlavraQueMaisAparece()) {
+            y++
+        }
+    } while (y < 25)
 
 }
 
 function imprimir() {
-    let res =document.getElementById("res")
-    let i=0
-    do{
-        res.innerHTML+=`${vezesFinal[i]}    ${palavrasFinal[i]} <br>`
+    let res = document.getElementById("res")
+    let montagem
+    montagem =
+        `<table>
+        <tr>
+            <th>Vezes</th>
+            <th>Palavra</th>
+        </tr>
+        <br>`
+    let i = 0
+    do {
+        if (vezesFinal[i] == 0) {
+            break
+        }
+        montagem +=
+            `<tr>
+          <td>${vezesFinal[i]}</td>
+
+          <td>${palavrasFinal[i]}</td>
+        </tr>
+        <br>`
         i++
-    }while(i<10)
+    } while (i < 25)
+    montagem += `</table>`
+    console.log(montagem)
+    res.innerHTML = montagem
 }
 
 //  window.alert(palavras[vezes.indexOf(Math.min(vezes))])
@@ -92,4 +125,7 @@ function imprimir() {
     posicaoMenorAtual = vezes.indexOf(Math.min(vezes))
     substituir(palavraAtual,posicaoMenorAtual)
     palavraAtual = ""
+
+
+    
 }*/
