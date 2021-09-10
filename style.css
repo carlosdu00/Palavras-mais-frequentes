@@ -29,15 +29,38 @@
 #res{
     display: flex;
     position: absolute;
-    margin: 15px;
     left: 1000px;
-    top: 15px;
+    top: 20px;
+    font-size: 17px;
 }
 
 td, th {
-    box-shadow: 0px 1px 0px;
+
+    box-shadow: 0px 0px 2px;
     text-align: center;
-    padding: 5px;
+    padding: 3px;
     padding-top: 0px;
     padding-bottom: 0px;
+    margin: 10px;
   }
+th{
+    padding: 10px;
+}
+
+#x_icon{
+    padding: 0px;
+    margin: 0px;
+}
+
+#x_btn{
+    position: relative;
+    top: 2px;
+    padding: 0px;
+    margin: 0px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}

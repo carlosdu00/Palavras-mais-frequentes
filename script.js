@@ -84,7 +84,7 @@ function ordenar() {
         if (acharPlavraQueMaisAparece()) {
             y++
         }
-    } while (y < 25)
+    } while (y < 20)
 
 }
 
@@ -108,13 +108,31 @@ function imprimir() {
           <td>${vezesFinal[i]}</td>
 
           <td>${palavrasFinal[i]}</td>
+
+          <td><button id="x_btn" onclick="apagar(${i})"><img id="x_icon" src="media/x_icon.png" alt="X"></button></td>
         </tr>
         <br>`
         i++
-    } while (i < 25)
+    } while (i < 20)
     montagem += `</table>`
     console.log(montagem)
     res.innerHTML = montagem
+}
+
+function apagar(posicaoApagar){
+    let palavrasNova=[]
+    let vezesNova=[]
+    let i
+    for(i=0;i<palavrasFinal.length;i++){
+        if(i!=posicaoApagar){
+            palavrasNova.push(palavrasFinal[i])
+            vezesNova.push(vezesFinal[i])
+        }
+    }
+    palavrasFinal=palavrasNova
+    vezesFinal=vezesNova
+    acharPlavraQueMaisAparece()
+    imprimir()
 }
 
 //  window.alert(palavras[vezes.indexOf(Math.min(vezes))])
@@ -125,7 +143,4 @@ function imprimir() {
     posicaoMenorAtual = vezes.indexOf(Math.min(vezes))
     substituir(palavraAtual,posicaoMenorAtual)
     palavraAtual = ""
-
-
-    
 }*/
