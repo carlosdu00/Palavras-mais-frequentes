@@ -36,7 +36,7 @@ function contar() {
     vezesFinal = []
     var texto = document.getElementById("campoDeTexto").value + " "
     texto = texto.toLowerCase()
-    texto = texto.replace(/(\r\n|\n|\r)/gm, "") //remove quebras de linha
+    texto = texto.replace(/(\r\n|\n|\r|:)/gm, " ") //remove quebras de linha
     var palavraAtual = ""
     var i = 0
     do {
