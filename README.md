@@ -1,2 +1,2 @@
 # Palavras-mais-frequentes
-Script para ordenar as palavras de um texto das mais para as menos usadas.
+Script para ordenar as palavras que mais aparecem em um texto.
