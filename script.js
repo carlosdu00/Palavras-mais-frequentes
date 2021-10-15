@@ -42,11 +42,9 @@ function contar() {
     do {
         if (texto[i] != " " && texto[i] != "," && texto[i] != "." && texto[i] != "?" && texto[i] != "!" && texto[i] != "" && texto[i] != "-" && texto[i] != "–") {
             palavraAtual = palavraAtual + texto[i]
-        }
-        else if (palavraAtual != "" && acharPalavraIgual(palavraAtual)) {
+        } else if (palavraAtual != "" && acharPalavraIgual(palavraAtual)) {
             palavraAtual = ""
-        }
-        else {
+        } else {
             if (acharNan(palavraAtual)) {
                 palavraAtual = ""
             }
@@ -72,8 +70,7 @@ function acharPlavraQueMaisAparece() {
         palavrasFinal.push(palavras[posicaoMaior])
         vezesFinal.push(maior)
         return true
-    }
-    else {
+    } else {
         return false
     }
 }
