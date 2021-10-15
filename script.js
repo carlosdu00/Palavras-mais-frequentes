@@ -41,21 +41,21 @@ function contar() {
     var i = 0
     do {
         if (texto[i] != " " && texto[i] != "," && texto[i] != "." && texto[i] != "?" && texto[i] != "!" && texto[i] != "" && texto[i] != "-" && texto[i] != "–") {
-        palavraAtual = palavraAtual + texto[i]
-    }
+            palavraAtual = palavraAtual + texto[i]
+        }
         else if (palavraAtual != "" && acharPalavraIgual(palavraAtual)) {
-        palavraAtual = ""
-    }
-    else {
-        if (acharNan(palavraAtual)) {
             palavraAtual = ""
         }
-    }
-    i++
-} while (i <= texto.length)
+        else {
+            if (acharNan(palavraAtual)) {
+                palavraAtual = ""
+            }
+        }
+        i++
+    } while (i <= texto.length)
 
     ordenar()
-imprimir()
+    imprimir()
 }
 
 function acharPlavraQueMaisAparece() {
@@ -119,18 +119,18 @@ function imprimir() {
     res.innerHTML = montagem
 }
 
-function apagar(posicaoApagar){
-    let palavrasNova=[]
-    let vezesNova=[]
+function apagar(posicaoApagar) {
+    let palavrasNova = []
+    let vezesNova = []
     let i
-    for(i=0;i<palavrasFinal.length;i++){
-        if(i!=posicaoApagar){
+    for (i = 0; i < palavrasFinal.length; i++) {
+        if (i != posicaoApagar) {
             palavrasNova.push(palavrasFinal[i])
             vezesNova.push(vezesFinal[i])
         }
     }
-    palavrasFinal=palavrasNova
-    vezesFinal=vezesNova
+    palavrasFinal = palavrasNova
+    vezesFinal = vezesNova
     acharPlavraQueMaisAparece()
     imprimir()
 }
